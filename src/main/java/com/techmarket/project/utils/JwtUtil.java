@@ -17,17 +17,17 @@ import io.jsonwebtoken.security.Keys;
 @Component
 public class JwtUtil {
     
-    public static final String SECRET = "";
+    public static final String SECRET = "567805950750570875895494857495797ADF987D0F9FA0F6D984GIG45U34";
 
-    public String generateToken(String userName){
+    public String generateToken(String username){
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userName);
+        return createToken(claims, username);
     }
 
-    private String createToken(Map<String, Object> claims, String userName){
+    private String createToken(Map<String, Object> claims, String username){
         return Jwts.builder()
                .setClaims(claims)
-               .setSubject(userName)
+               .setSubject(username)
                .setIssuedAt(new Date(System.currentTimeMillis()))
                .setExpiration(new Date(System.currentTimeMillis() + 10000 * 60 *30))
                .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();

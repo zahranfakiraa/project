@@ -26,7 +26,6 @@ public class SimpleCorsFilter implements Filter{
     private String clientAppUrl = "";
 
     public SimpleCorsFilter(){
-
     }
 
     @Override
