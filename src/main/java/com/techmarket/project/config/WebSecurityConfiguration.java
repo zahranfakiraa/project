@@ -23,14 +23,13 @@ public class WebSecurityConfiguration {
     
     private final JwtRequestFilter authFilter;
 
-    @SuppressWarnings("removal")
+
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-        return http
-               .csrf()
-               .disable()
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
+        return httpSecurity
+               .csrf().disable()
                .authorizeHttpRequests()
-               .requestMatchers("/authenticate","/sign-up","/order/**")
+               .requestMatchers("/authenticate","/signup","/order/**")
                .permitAll()
                .and()
                .authorizeHttpRequests()
